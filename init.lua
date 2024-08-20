@@ -100,6 +100,10 @@ vim.g.have_nerd_font = true
 
 -- Make line numbers default
 vim.opt.number = true
+
+-- Use relative numbers
+vim.opt.relativenumber = true
+
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
 -- vim.opt.relativenumber = true
@@ -364,7 +368,18 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        pickers = {
+          live_grep = {
+            file_ignore_patterns = { 'node_modules', '.git', '.venv' },
+            additional_args = function(_)
+              return { '--hidden' }
+            end,
+          },
+          find_files = {
+            file_ignore_patterns = { 'node_modules', '.git', '.venv' },
+            hidden = true,
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
