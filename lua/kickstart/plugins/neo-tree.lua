@@ -21,5 +21,9 @@ return {
         },
       },
     },
+    window = {
+      position = 'float',
+    },
+    popup_border_style = 'rounded',
   },
 }
