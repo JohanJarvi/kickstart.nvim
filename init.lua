@@ -205,6 +205,18 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Insert mode keybinds
 vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode easier' })
 
+-- Go to definition in horizontal split
+vim.keymap.set('n', 'gsd', function()
+  vim.cmd 'vsplit'
+  vim.cmd 'Telescope lsp_definitions'
+end, { noremap = true, silent = true, desc = '[G]o to [H]orizontal split [D]efinition' })
+
+-- Go to definition in vertical split
+vim.keymap.set('n', 'gvd', function()
+  vim.cmd 'vsplit'
+  vim.cmd 'Telescope lsp_definitions'
+end, { noremap = true, silent = true, desc = '[G]o to [V]ertical split [D]efinition' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
