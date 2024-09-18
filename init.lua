@@ -217,6 +217,15 @@ vim.keymap.set('n', 'gvd', function()
   vim.cmd 'Telescope lsp_definitions'
 end, { noremap = true, silent = true, desc = '[G]o to [V]ertical split [D]efinition' })
 
+-- Better deal with diagnostics
+vim.keymap.set('n', '[d', function()
+  vim.diagnostic.goto_prev()
+end, { noremap = true, silent = true, desc = 'Go to previous diagnostic' })
+
+vim.keymap.set('n', ']d', function()
+  vim.diagnostic.goto_next()
+end, { noremap = true, silent = true, desc = 'Go to next diagnostic' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -712,6 +721,7 @@ require('lazy').setup({
         -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
         typescript = { 'prettierd', 'prettier', stop_after_first = true },
+        json = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },
